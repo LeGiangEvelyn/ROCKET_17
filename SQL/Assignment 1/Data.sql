@@ -25,21 +25,21 @@ VALUES
 						('Telesale');
                         
 -- Insert into Account
-INSERT into `Account` (email,				user_name,		full_name,					department_id,	position_id)
+INSERT into `Account` (email,				user_name,		full_name,					department_id,	position_id, create_date)
 VALUES
-					('lan0304@gmail.com',	'lan0304',		'Le Thi Lan',					8,				1),
-                    ('dung1112@gmail.com',	'dung1112',		'Do Duc Dung',					2,				6),
-                    ('mai2307@gmail.com',	'mai2307',		'Nguyen Ngoc Mai',				3,				7),
-                    ('duyen0768@gmail.com',	'duyen0768',	'Tran Mai Duyen',				8,				1),
-					('tri0809@gmail.com',	'tri0809',		'Le Xuan Tri',					1,				5),
-                    ('linh2306@gmail.com',	'linh2306',		'Nguyen Phuong Linh',			7,				8),
-                    ('hoa0304@gmail.com',	'hoa0304',		'Nguyen Hong Hoa',				2,				6),
-                    ('huong0909@gmail.com',	'huong0909',	'Nguyen Quynh Huong',			8,				4),
-                    ('tuan2309@gmail.com',	'tuan2309',		'Nguyen Vi Tuan',				8,				2),
-                    ('dung0405@gmail.com',	'dung0405',		'Ngo Dinh Dung',				2,				9),
-					('hien5607@gmail.com',	'hien5607',		'Trinh Thu Hien',				1,				10),
-                    ('quan4508@gmail.com',	'quan4508',		'Mai Tri Quan',					7,				3),
-                    ('duong4567@gmail.com',	'duong4567',	'Nguyen Thu Duong',				3,				7);
+					('lan0304@gmail.com',	'lan0304',		'Le Thi Lan',					8,				1,			'2020/12/03'),
+                    ('dung1112@gmail.com',	'dung1112',		'Do Duc Dung',					2,				6,			'2010/04/14'),
+                    ('mai2307@gmail.com',	'mai2307',		'Nguyen Ngoc Mai',				3,				7,			'2019/04/30'),
+                    ('duyen0768@gmail.com',	'duyen0768',	'Tran Mai Duyen',				8,				1,			'2018/05/25'),
+					('tri0809@gmail.com',	'tri0809',		'Le Xuan Tri',					1,				5,			'2020/06/25'),
+                    ('linh2306@gmail.com',	'linh2306',		'Nguyen Phuong Linh',			7,				8,			'2018/05/25'),
+                    ('hoa0304@gmail.com',	'hoa0304',		'Nguyen Hong Hoa',				2,				6,			'2021/08/02'),
+                    ('huong0909@gmail.com',	'huong0909',	'Nguyen Quynh Huong',			8,				4,			'2018/05/25'),
+                    ('tuan2309@gmail.com',	'tuan2309',		'Nguyen Vi Tuan',				8,				2,			'2020/06/29'),
+                    ('dung0405@gmail.com',	'dung0405',		'Ngo Dinh Dung',				2,				9,			'2018/05/25'),
+					('hien5607@gmail.com',	'hien5607',		'Trinh Thu Hien',				1,				10,			'2021/05/25'),
+                    ('quan4508@gmail.com',	'quan4508',		'Mai Tri Quan',					7,				3,			'2017/05/29'),
+                    ('duong4567@gmail.com',	'duong4567',	'Nguyen Thu Duong',				3,				7,			'2020/10/25');
 
 -- Insert into Group
 INSERT INTO `Group` (group_name,				creator_id)
