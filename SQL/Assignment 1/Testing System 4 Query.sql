@@ -18,10 +18,14 @@ GROUP BY d.department_id
 HAVING COUNT(a.account_id) > 3;
 
 -- Question 5: Viết lệnh để lấy ra danh sách câu hỏi được sử dụng trong đề thi nhiều nhất
-SELECT q.content, COUNT(e.question_id) as count_question
+SELECT q.content, COUNT(e.exam_id) as number_of_exams
 FROM question q
-JOIN examquestion e ON q.question_id = e.question_id
-GROUP BY e.question_id;
+INNER JOIN examquestion e ON q.question_id = e.question_id
+GROUP BY e.question_id
+HAVING number_of_exams = (SELECT MAX(nb) 
+							FROM (SELECT COUNT(E.exam_id) AS nb
+									FROM examquestion E
+									GROUP BY e.question_id) AS COUNTEX);
 
 -- Question 6: Thông kê mỗi category Question được sử dụng trong bao nhiêu Question
 SELECT c.category_name, COUNT(q.category_id) AS count_category
@@ -30,8 +34,8 @@ LEFT JOIN question q ON  c.category_id = q.category_id
 GROUP BY c.category_id;
 
 -- Question 7: Thông kê mỗi Question được sử dụng trong bao nhiêu Exam
-SELECT q.content, COUNT(e.question_id) as COUNT_QUESTION
-FROM question q
+SELECT q.content, COUNT(q.question_id) as COUNT_QUESTION
+FROM question q  
 LEFT JOIN examquestion e ON q.question_id = e.question_id
 GROUP BY q.question_id;
 
