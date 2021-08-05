@@ -75,7 +75,7 @@ SELECT d.department_name, p.position_name, COUNT(a.position_id) AS COUNT_POSITIO
 FROM `account` a 
 JOIN department d ON a.department_id = d.department_id
 JOIN `position` p ON a.position_id = p.position_id
-GROUP BY p.position_id;
+GROUP BY p.position_id, d.department_id;
 
 -- Question 12: Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của question, loại câu hỏi, ai là người tạo ra câu hỏi,câu trả lời là gì,
 SELECT q.question_id, q.content, t.type_name, a.full_name, an.content
