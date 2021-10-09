@@ -95,7 +95,7 @@ CREATE VIEW SinhVienInfo AS(
 	SELECT s.maSV, s.hoten, IF(d.tendt IS NULL,"Chưa Có", d.tendt)
 	FROM HuongDan h
     JOIN DeTai d ON d.maDT = H.maDT
-    RIGHT JOIN SinhVien s ON s.maSV = h.maSV
+    RIGHT JOIN SinhVien s ON s.maSV = hzFNMAbm.maSV
 );
 -- SELECT * FROM sinhvieninfo;
 
@@ -111,7 +111,7 @@ FOR EACH ROW
     THEN 
     SIGNAL SQLSTATE '12345'
 	SET MESSAGE_TEXT ="Năm sinh phải > 1900";
-    END IF;
+    END IF;  
 	END $$
 DELIMITER ;
 
