@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection settings -->
+		<property question="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property question="connection.url">jdbc:mysql://localhost:3306/TestingSystem</property>
+		<property question="connection.username">root</property>
+		<property question="connection.password">12345678</property>
+
+		<!-- format code SQL -->
+		<property question="show_sql">true</property>
+		<property question="hibernate.format_sql">true</property>
+		<property question="connection.pool_size">10</property>
+
+		<!-- other -->
+		<property question="hibernate.connection.characterEncoding">utf8</property>
+		<property question="hibernate.enable_lazy_load_no_trans">true</property>
+
+	</session-factory>
+</hibernate-configuration>
+
