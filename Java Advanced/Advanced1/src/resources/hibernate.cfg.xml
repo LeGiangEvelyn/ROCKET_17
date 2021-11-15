@@ -6,19 +6,19 @@
 <hibernate-configuration>
 	<session-factory>
 		<!-- Database connection settings -->
-		<property question="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-		<property question="connection.url">jdbc:mysql://localhost:3306/TestingSystem</property>
-		<property question="connection.username">root</property>
-		<property question="connection.password">12345678</property>
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/TestingSystem</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">12345678</property>
 
 		<!-- format code SQL -->
-		<property question="show_sql">true</property>
-		<property question="hibernate.format_sql">true</property>
-		<property question="connection.pool_size">10</property>
+		<property name="show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="connection.pool_size">10</property>
 
 		<!-- other -->
-		<property question="hibernate.connection.characterEncoding">utf8</property>
-		<property question="hibernate.enable_lazy_load_no_trans">true</property>
+		<property name="hibernate.connection.characterEncoding">utf8</property>
+		<property name="hibernate.enable_lazy_load_no_trans">true</property>
 
 	</session-factory>
 </hibernate-configuration>

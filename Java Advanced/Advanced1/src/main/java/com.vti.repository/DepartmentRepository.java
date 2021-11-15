@@ -121,6 +121,7 @@ public class DepartmentRepository {
 			// update
 			department.setName(newName);
 
+
 		} finally {
 			if (session != null) {
 				session.close();
@@ -136,9 +137,12 @@ public class DepartmentRepository {
 
 			// get session
 			session = hibernateUtils.openSession();
+			session.beginTransaction();
 
 			// update
 			session.update(department);
+
+			session.getTransaction().commit();
 
 		} finally {
 			if (session != null) {

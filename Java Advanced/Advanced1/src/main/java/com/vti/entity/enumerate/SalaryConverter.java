@@ -1,10 +1,8 @@
 package com.vti.entity.enumerate;
 
-import com.vti.entity.enumerate.SalaryName;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import java.util.stream.Stream;
 
 @Converter(autoApply = true)
 public class SalaryConverter implements AttributeConverter<SalaryName, String> {
@@ -17,15 +15,11 @@ public class SalaryConverter implements AttributeConverter<SalaryName, String> {
         return name.getCode();
     }
 
-    //set lambda 8, sysc
     @Override
     public SalaryName convertToEntityAttribute(String code) {
         if (code == null){
             return null;
         }
-        return Stream.of(SalaryName.values())
-                .filter(c -> c.getCode().equals(code))
-                .findFirst()
-                .orElseThrow(IllegalArgumentException::new);
+        return SalaryName.toEnum(code);
     }
 }

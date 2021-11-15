@@ -12,4 +12,13 @@ public enum SalaryName {
     public String getCode() {
         return code;
     }
+
+    public static SalaryName toEnum(String sqlCode) {
+        for (SalaryName item : SalaryName.values()) {
+            if (item.getCode().equals(sqlCode)) {
+                return item;
+            }
+        }
+        return null;
+    }
 }

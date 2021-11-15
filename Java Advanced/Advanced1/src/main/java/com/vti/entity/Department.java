@@ -15,12 +15,12 @@ public class Department implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "id")
+	@Column(name = "DepartmentID")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private short id;
 
-	@Column(name = "name", length = 50, nullable = false, unique = true)
+	@Column(name = "DepartmentName", length = 50, nullable = false, unique = true)
 	private String name;
 
 	public Department() {
