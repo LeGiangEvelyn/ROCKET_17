@@ -2,6 +2,7 @@ package com.vti.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "CategoryQuestion")
@@ -14,6 +15,12 @@ public class CategoryQuestion implements Serializable {
 
     @Column(name = "CategoryName", nullable = false, unique = true)
     private String category;
+
+    @OneToMany(mappedBy = "categoryQuestions")
+    private Question question;
+
+    @OneToMany(mappedBy = "categoryQuestion")
+    private List<Exam> examList;
 
     public CategoryQuestion() {
     }
@@ -34,11 +41,5 @@ public class CategoryQuestion implements Serializable {
         this.category = type;
     }
 
-    @Override
-    public String toString() {
-        return "TypeQuestion{" +
-                "id=" + id +
-                ", type='" + category + '\'' +
-                '}';
-    }
+
 }

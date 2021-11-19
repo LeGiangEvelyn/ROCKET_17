@@ -4,6 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -21,10 +22,25 @@ public class Question implements Serializable {
     @Column(name = "QuestionName", length = 100, nullable = false, unique = true)
     private String question;
 
+    @ManyToOne
+    @JoinColumn(name = "CategoryID")
+    private List<CategoryQuestion> categoryQuestions;
+
+    @ManyToOne
+    @JoinColumn(name = "TypeID")
+    private List<TypeQuestion> typeQuestions;
+
+    @OneToOne
+    @JoinColumn(name = "CreatorID", referencedColumnName = "AccountID")
+    private Account creator;
+
     @Column(name = "CreateDate", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp 			//Set default date, only timestamp
     private Date createDate;
+
+    @OneToMany(mappedBy = "question")
+    private List<Answer> answers;
 
     public Question() {
     }
@@ -54,9 +70,5 @@ public class Question implements Serializable {
     }
 
 
-    @Override
-    public String toString() {
-        return "Group { " + "ID = " + id + ", Name = '" + question + '\'' + '}';
-    }
 
 }

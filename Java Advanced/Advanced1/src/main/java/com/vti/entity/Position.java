@@ -1,6 +1,7 @@
 package com.vti.entity;
 
 import com.vti.entity.enumerate.PositionName;
+import com.vti.entity.enumerate.PositionNameConverter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,8 +18,13 @@ public class Position implements Serializable {
     private short id;
 
     @Column(name = "PositionName", nullable = false, unique = true)
-    @Enumerated(EnumType.STRING) //Using position.setQuestion(PositionName.DEV)
+    @Convert(converter = PositionNameConverter.class)           //Khai bao ham converter
+    //@Enumerated(EnumType.STRING) //Using position.setQuestion(PositionName.DEV)
     private PositionName name;
+
+    @ManyToOne
+    @JoinColumn(name = "AccountID")         //Sql attribute, tạo kết nối vật lý
+    private Account account;
 
     public Position() {
     }
@@ -39,11 +45,5 @@ public class Position implements Serializable {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Position{" +
-                "id=" + id +
-                ", name=" + name +
-                '}';
-    }
+
 }

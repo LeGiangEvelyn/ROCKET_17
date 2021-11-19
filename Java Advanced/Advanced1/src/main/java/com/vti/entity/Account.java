@@ -2,15 +2,9 @@ package com.vti.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Formula;
@@ -41,6 +35,31 @@ public class Account implements Serializable {
     @Formula(" concat(FirstName, ' ', LastName) ")
     private String fullName;
 
+
+    @OneToMany(mappedBy = "account")    //bien account bên Department vừa tạo của @ManyToOne
+    private List<Department> departmentList;
+
+
+    @OneToMany(mappedBy = "account")    //bien account bên Position vừa tạo của @ManyToOne
+    private List<Position> positionList;
+
+
+    @OneToMany(mappedBy = "account")    //bien account bên Salary vừa tạo của @ManyToOne
+    private List<Salary> salaryList;
+
+    @ManyToMany
+    @JoinTable(
+            name = "GroupAccount",       //table trung gian
+            joinColumns = { @JoinColumn(name = "AccountID")},
+            inverseJoinColumns = { @JoinColumn(name = "GroupID")}
+    )
+    private List<Group> groupList;
+
+    @OneToOne(mappedBy = "creator")
+    private Question question;
+
+    @OneToMany(mappedBy = "creator")
+    private List<Exam> examList;
 
     @Column(name = "CreateDate")
     @Temporal(TemporalType.TIMESTAMP)

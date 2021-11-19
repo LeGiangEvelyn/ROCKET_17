@@ -4,6 +4,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -25,6 +26,9 @@ public class Group implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp 			//Set default date, only timestamp
 	private Date createDate;
+
+	@ManyToMany(mappedBy = "groupList")		//bien vưa tao ben Account trong @manytomany
+	private List<Account> accountList;
 
 	public Group() {
 	}

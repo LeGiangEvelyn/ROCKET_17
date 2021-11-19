@@ -5,7 +5,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.*;
@@ -24,6 +23,10 @@ public class Answer implements Serializable {
 
     @Column(name = "Content", length = 100, nullable = false)
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "QuestionID")
+    private Question question;
 
     @Column(name = "isCorrect", updatable = false)
     @ColumnDefault("1")

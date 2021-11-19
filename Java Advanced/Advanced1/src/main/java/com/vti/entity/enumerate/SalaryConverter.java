@@ -15,6 +15,7 @@ public class SalaryConverter implements AttributeConverter<SalaryName, String> {
         return name.getCode();
     }
 
+    //convert from String to Enum
     @Override
     public SalaryName convertToEntityAttribute(String code) {
         if (code == null){

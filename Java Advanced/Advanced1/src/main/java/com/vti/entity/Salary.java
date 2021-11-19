@@ -21,6 +21,10 @@ public class Salary implements Serializable {
     @Convert(converter = SalaryConverter.class)
     private SalaryName name;
 
+    @ManyToOne
+    @JoinColumn(name = "AccountID")         //Sql attribute, tạo kết nối vật lý
+    private Account account;
+
     public Salary() {
     }
 
@@ -39,4 +43,5 @@ public class Salary implements Serializable {
     public void setName(SalaryName name) {
         this.name = name;
     }
+
 }

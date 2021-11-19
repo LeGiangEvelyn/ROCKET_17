@@ -21,8 +21,7 @@ public class ExamCodeGenerator implements IdentifierGenerator {
         Exam exam = (Exam) object;
 
         short duration = exam.getDuration();
-        char type = exam.getCode1().charAt(0);
-        int count = repository.getCountByCode(type);
+        int count = repository.getCountByCode(duration);
         if (duration >= 180) {
             return "L - " + (count + 1);
         }

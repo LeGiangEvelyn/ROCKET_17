@@ -15,6 +15,10 @@ public class TypeQuestion implements Serializable {
     @Column(name = "TypeName", nullable = false, unique = true)
     private String type;
 
+    @OneToMany(mappedBy = "typeQuestions")
+    private Question question;
+
+
     public TypeQuestion() {
     }
 

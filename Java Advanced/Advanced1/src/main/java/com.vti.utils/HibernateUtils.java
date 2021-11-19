@@ -37,9 +37,9 @@ public class HibernateUtils {
 		configuration.addAnnotatedClass(Position.class);
 		configuration.addAnnotatedClass(Article.class);
 		configuration.addAnnotatedClass(Exam.class);
-
-
-
+		configuration.addAnnotatedClass(Salary.class);
+		configuration.addAnnotatedClass(User.class);
+		configuration.addAnnotatedClass(Address.class);
 
 	}
 

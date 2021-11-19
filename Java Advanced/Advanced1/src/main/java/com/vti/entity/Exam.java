@@ -18,7 +18,7 @@ public class Exam implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short id;
 
-    @Column(name = "Code1", length = 10, nullable = false, updatable = false)
+    @Column(name = "Code1", length = 10, updatable = false)
     @GenericGenerator(
             name = "exam-code-generator",
             strategy = "com/vti/entity/generate/ExamCodeGenerator"
@@ -29,9 +29,17 @@ public class Exam implements Serializable {
     @Column(name = "Title", nullable = false)
     private String title;
 
+    @ManyToOne
+    @JoinColumn(name = "CategoryID")
+    private CategoryQuestion categoryQuestion;
+
     @Column(name = "Duration")
     @ColumnDefault("45")
     private short duration;
+
+    @ManyToOne
+    @JoinColumn(name = "CreatorID")
+    private Account creator;
 
     @Column(name = "CreateDate")
     @Temporal(TemporalType.TIMESTAMP)

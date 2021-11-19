@@ -32,18 +32,18 @@ public class ExamRepository {
     }
 
     @SuppressWarnings("unchecked")
-    public int getCountByCode(char codeType) {
+    public int getCountByCode(short duration) {
         Session session = null;
 
         try {
             session = hibernateUtils.openSession();
 
             //create hql
-            Query<Long> query = session.createQuery("SELECT COUNT(1) FROM Exam WHERE code1 LIKE :codeType");
+            Query<Integer> query = session.createQuery("SELECT COUNT(1) FROM Exam WHERE Duration >= :durationParameter");
             //set parameter
-            query.setParameter("codeType", codeType);
+            query.setParameter("durationParameter", duration);
             //get Result
-            return query.uniqueResult().intValue();
+            return query.uniqueResult();
         } finally {
             if (session != null){
                 session.close();
