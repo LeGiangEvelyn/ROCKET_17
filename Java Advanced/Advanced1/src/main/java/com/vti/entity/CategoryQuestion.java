@@ -16,8 +16,8 @@ public class CategoryQuestion implements Serializable {
     @Column(name = "CategoryName", nullable = false, unique = true)
     private String category;
 
-    @OneToMany(mappedBy = "categoryQuestions")
-    private Question question;
+//    @OneToMany(mappedBy = "categoryQuestions")
+//    private Question question;
 
     @OneToMany(mappedBy = "categoryQuestion")
     private List<Exam> examList;
@@ -41,5 +41,23 @@ public class CategoryQuestion implements Serializable {
         this.category = type;
     }
 
+    public String getCategory() {
+        return category;
+    }
 
+//    public Question getQuestion() {
+//        return question;
+//    }
+//
+//    public void setQuestion(Question question) {
+//        this.question = question;
+//    }
+
+    public List<Exam> getExamList() {
+        return examList;
+    }
+
+    public void setExamList(List<Exam> examList) {
+        this.examList = examList;
+    }
 }

@@ -49,12 +49,5 @@ import java.io.Serializable;
             this.emulationPoint = emulationPoint;
         }
 
-        @Override
-        public String toString() {
-            return "DetailDepartment{" +
-                    "id=" + id +
-                    ", address=" + address +
-                    ", emulationPoint=" + emulationPoint +
-                    '}';
-        }
+
     }

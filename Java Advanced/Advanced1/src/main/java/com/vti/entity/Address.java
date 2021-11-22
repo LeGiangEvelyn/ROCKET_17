@@ -9,15 +9,15 @@ import java.util.List;
 public class Address implements Serializable {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "AddressID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "street", length = 100, nullable = false, unique = true)
-    private String street;
+    @Column(name = "AddressName", length = 100, nullable = false, unique = true)
+    private String name;
 
-    @Column(name = "city", length = 50, nullable = false)
-    private String city;
+//    @Column(name = "city", length = 50, nullable = false)
+//    private String city;
 
     //Co the bo duoc
     // mappedBy bang bien java address sang bang User
@@ -30,22 +30,22 @@ public class Address implements Serializable {
     public Address() {
     }
 
-    public String getStreet() {
-        return street;
+    public String getName() {
+        return name;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
+//    public String getCity() {
+//        return city;
+//    }
+//
+//    public void setCity(String city) {
+//        this.city = city;
+//    }
+//
 
     public int getId() {
         return id;

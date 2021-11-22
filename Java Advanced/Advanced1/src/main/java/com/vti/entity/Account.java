@@ -11,6 +11,7 @@ import org.hibernate.annotations.Formula;
 
 @Entity
 @Table(name = "`Account`", catalog = "TestingSystem")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Account implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,8 +37,8 @@ public class Account implements Serializable {
     private String fullName;
 
 
-    @OneToMany(mappedBy = "account")    //bien account bên Department vừa tạo của @ManyToOne
-    private List<Department> departmentList;
+//    @OneToMany(mappedBy = "account")    //bien account bên Department vừa tạo của @ManyToOne
+//    private List<Department> departmentList;
 
 
     @OneToMany(mappedBy = "account")    //bien account bên Position vừa tạo của @ManyToOne
@@ -55,8 +56,8 @@ public class Account implements Serializable {
     )
     private List<Group> groupList;
 
-    @OneToOne(mappedBy = "creator")
-    private Question question;
+//    @OneToOne(mappedBy = "creator")
+//    private Question question;
 
     @OneToMany(mappedBy = "creator")
     private List<Exam> examList;
@@ -126,10 +127,51 @@ public class Account implements Serializable {
         this.createDate = createDate;
     }
 
+//    public List<Department> getDepartmentList() {
+//        return departmentList;
+//    }
+//
+//    public void setDepartmentList(List<Department> departmentList) {
+//        this.departmentList = departmentList;
+//    }
 
-    @Override
-    public String toString() {
-        return "Account [id=" + id + ", email=" + email + ", username=" + username + ", firstName=" + firstName
-                + ", lastName=" + lastName + ", fullName=" + fullName + ", createDate=" + createDate + "]";
+    public List<Position> getPositionList() {
+        return positionList;
+    }
+
+    public void setPositionList(List<Position> positionList) {
+        this.positionList = positionList;
+    }
+
+    public List<Salary> getSalaryList() {
+        return salaryList;
+    }
+
+    public void setSalaryList(List<Salary> salaryList) {
+        this.salaryList = salaryList;
+    }
+
+    public List<Group> getGroupList() {
+        return groupList;
+    }
+
+    public void setGroupList(List<Group> groupList) {
+        this.groupList = groupList;
+    }
+
+//    public Question getQuestion() {
+//        return question;
+//    }
+//
+//    public void setQuestion(Question question) {
+//        this.question = question;
+//    }
+
+    public List<Exam> getExamList() {
+        return examList;
+    }
+
+    public void setExamList(List<Exam> examList) {
+        this.examList = examList;
     }
 }

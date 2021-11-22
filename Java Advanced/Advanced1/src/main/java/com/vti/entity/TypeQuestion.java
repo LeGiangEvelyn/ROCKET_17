@@ -15,8 +15,8 @@ public class TypeQuestion implements Serializable {
     @Column(name = "TypeName", nullable = false, unique = true)
     private String type;
 
-    @OneToMany(mappedBy = "typeQuestions")
-    private Question question;
+//    @OneToMany(mappedBy = "typeQuestions")
+//    private Question question;
 
 
     public TypeQuestion() {
@@ -38,11 +38,11 @@ public class TypeQuestion implements Serializable {
         this.type = type;
     }
 
-    @Override
-    public String toString() {
-        return "TypeQuestion{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
-                '}';
-    }
+//    public Question getQuestion() {
+//        return question;
+//    }
+//
+//    public void setQuestion(Question question) {
+//        this.question = question;
+//    }
 }

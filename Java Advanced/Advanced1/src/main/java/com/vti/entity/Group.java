@@ -57,10 +57,17 @@ public class Group implements Serializable {
 		this.createDate = createDate;
 	}
 
-
-	@Override
-	public String toString() {
-		return "Group { " + "ID = " + id + ", Name = '" + group + '\'' + '}';
+	public List<Account> getAccountList() {
+		return accountList;
 	}
+
+	public void setAccountList(List<Account> accountList) {
+		this.accountList = accountList;
+	}
+
+	//	@Override
+//	public String toString() {
+//		return "Group { " + "ID = " + id + ", Name = '" + group + '\'' + '}';
+//	} Delete cause duplicate data
 
 }

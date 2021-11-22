@@ -1,12 +1,15 @@
 package com.vti.repository;
 
-import java.util.List;
-
+import com.vti.entity.DTO.DepartmentDto;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import com.vti.entity.Department;
 import com.vti.utils.HibernateUtils;
+import org.hibernate.transform.Transformers;
+
+import java.util.List;
+
 
 public class DepartmentRepository {
 
@@ -17,7 +20,7 @@ public class DepartmentRepository {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Department> getAllDepartments() {
+	public List<DepartmentDto> getAllDepartments() {
 
 		Session session = null;
 
@@ -27,9 +30,9 @@ public class DepartmentRepository {
 			session = hibernateUtils.openSession();
 
 			// create hql query
-			Query<Department> query = session.createQuery("FROM Department");
-
-			return query.list();
+			Query query = session.createNativeQuery("SELECT d.DepartmentID, d.DepartmentName FROM Department d");
+			List<DepartmentDto> departments = query.setResultTransformer( Transformers.aliasToBean( DepartmentDto.class ) ).list();
+			return  departments;
 
 		} finally {
 			if (session != null) {
@@ -37,6 +40,7 @@ public class DepartmentRepository {
 			}
 		}
 	}
+
 
 	public Department getDepartmentByID(short id) {
 

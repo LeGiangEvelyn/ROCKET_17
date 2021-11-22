@@ -22,17 +22,17 @@ public class Question implements Serializable {
     @Column(name = "QuestionName", length = 100, nullable = false, unique = true)
     private String question;
 
-    @ManyToOne
-    @JoinColumn(name = "CategoryID")
-    private List<CategoryQuestion> categoryQuestions;
+//    @ManyToOne
+//    @JoinColumn(name = "CategoryID")
+//    private List<CategoryQuestion> categoryQuestions;
 
-    @ManyToOne
-    @JoinColumn(name = "TypeID")
-    private List<TypeQuestion> typeQuestions;
+//    @ManyToOne
+//    @JoinColumn(name = "TypeID")
+//    private List<TypeQuestion> typeQuestions;
 
-    @OneToOne
-    @JoinColumn(name = "CreatorID", referencedColumnName = "AccountID")
-    private Account creator;
+//    @OneToOne
+//    @JoinColumn(name = "CreatorID", referencedColumnName = "AccountID")
+//    private Account creator;
 
     @Column(name = "CreateDate", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -69,6 +69,36 @@ public class Question implements Serializable {
         this.createDate = createDate;
     }
 
+//
+//    public List<CategoryQuestion> getCategoryQuestions() {
+//        return categoryQuestions;
+//    }
 
+//    public void setCategoryQuestions(List<CategoryQuestion> categoryQuestions) {
+//        this.categoryQuestions = categoryQuestions;
+//    }
+//
+//    public List<TypeQuestion> getTypeQuestions() {
+//        return typeQuestions;
+//    }
+//
+//    public void setTypeQuestions(List<TypeQuestion> typeQuestions) {
+//        this.typeQuestions = typeQuestions;
+//    }
 
+//    public Account getCreator() {
+//        return creator;
+//    }
+//
+//    public void setCreator(Account creator) {
+//        this.creator = creator;
+//    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
 }

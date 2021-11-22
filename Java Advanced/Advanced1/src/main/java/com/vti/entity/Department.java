@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Department", catalog = "TestingSystem")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Department implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -18,9 +19,9 @@ public class Department implements Serializable {
 	@Column(name = "DepartmentName", length = 50, nullable = false, unique = true)
 	private String name;
 
-	@ManyToOne
-	@JoinColumn(name = "AccountID")         //Sql attribute, tạo kết nối vật lý
-	private Account account;
+//	@ManyToOne
+//	@JoinColumn(name = "AccountID")         //Sql attribute, tạo kết nối vật lý
+//	private Account account;
 
 	public Department() {
 	}
@@ -41,5 +42,11 @@ public class Department implements Serializable {
 		this.name = name;
 	}
 
-
+//	public Account getAccount() {
+//		return account;
+//	}
+//
+//	public void setAccount(Account account) {
+//		this.account = account;
+//	}
 }

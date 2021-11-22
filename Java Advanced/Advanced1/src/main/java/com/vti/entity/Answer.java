@@ -59,11 +59,11 @@ public class Answer implements Serializable {
         isCorrect = correct;
     }
 
-
-
-    @Override
-    public String toString() {
-        return "Answer { " + "ID = " + id + ", Content = '" + content + '\'' + '}';
+    public Question getQuestion() {
+        return question;
     }
 
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
 }

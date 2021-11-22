@@ -90,14 +90,21 @@ public class Exam implements Serializable {
         this.code1 = code1;
     }
 
-    @Override
-    public String toString() {
-        return "Exam{" +
-                "id=" + id +
-                ", code1='" + code1 + '\'' +
-                ", title='" + title + '\'' +
-                ", duration=" + duration +
-                ", createDate=" + createDate +
-                '}';
+    public CategoryQuestion getCategoryQuestion() {
+        return categoryQuestion;
     }
+
+    public void setCategoryQuestion(CategoryQuestion categoryQuestion) {
+        this.categoryQuestion = categoryQuestion;
+    }
+
+    public Account getCreator() {
+        return creator;
+    }
+
+    public void setCreator(Account creator) {
+        this.creator = creator;
+    }
+
+    //Must not have toString incase duplicate
 }

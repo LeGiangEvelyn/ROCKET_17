@@ -40,6 +40,11 @@ public class HibernateUtils {
 		configuration.addAnnotatedClass(Salary.class);
 		configuration.addAnnotatedClass(User.class);
 		configuration.addAnnotatedClass(Address.class);
+		configuration.addAnnotatedClass(CategoryQuestion.class);
+		configuration.addAnnotatedClass(TypeQuestion.class);
+		configuration.addAnnotatedClass(DetailDepartment.class);
+		configuration.addAnnotatedClass(Employee.class);
+		configuration.addAnnotatedClass(Manager.class);
 
 	}
 
