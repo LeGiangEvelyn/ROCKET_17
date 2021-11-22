@@ -9,6 +9,7 @@ import com.vti.utils.HibernateUtils;
 import org.hibernate.transform.Transformers;
 
 import java.util.List;
+import java.util.Scanner;
 
 
 public class DepartmentRepository {
@@ -20,7 +21,7 @@ public class DepartmentRepository {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<DepartmentDto> getAllDepartments() {
+	public List<DepartmentDto> getAllDepartments(int pageNumber, int pageSize, String searchName, short emulationPoint) {
 
 		Session session = null;
 
@@ -29,10 +30,27 @@ public class DepartmentRepository {
 			// get session
 			session = hibernateUtils.openSession();
 
-			// create hql query
-			Query query = session.createNativeQuery("SELECT d.DepartmentID, d.DepartmentName FROM Department d");
-			List<DepartmentDto> departments = query.setResultTransformer( Transformers.aliasToBean( DepartmentDto.class ) ).list();
-			return  departments;
+			// create hql query: need to clarify locate link, if not then unable to locate
+			Query query = session.createQuery("SELECT new com.vti.entity.DTO.DepartmentDto(dt.id, d.name, a.name)" +
+						" FROM com.vti.entity.DetailDepartment dt " +
+						"JOIN com.vti.entity.Address a ON dt.address = a.id " +
+						"JOIN com.vti.entity.Department d ON dt.id = d.id " +
+						"WHERE d.name LIKE :searchName AND dt.emulationPoint > :point " +
+						"ORDER BY d.name");
+
+			int offset = (pageNumber - 1) * pageSize;
+			int limit = pageSize;
+
+			query.setFirstResult(offset);
+			query.setMaxResults(limit);
+			query.setParameter("searchName", searchName);
+			query.setParameter("point", emulationPoint);
+
+			List<DepartmentDto> departments = query.list();
+
+			return departments;
+
+
 
 		} finally {
 			if (session != null) {

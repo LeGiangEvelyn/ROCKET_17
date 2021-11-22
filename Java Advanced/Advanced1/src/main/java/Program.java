@@ -9,12 +9,12 @@ public class Program {
 	public static void main(String[] args) {
 		DepartmentRepository repository = new DepartmentRepository();
 
-		System.out.println("***********GET ALL DEPARTMENTS***********");
+		System.out.println("***********GET ALL DEPARTMENTS WITH ADDRESS (PageNumber, PageSize, SearchName, emulationPoint***********");
 
-		List<DepartmentDto> departments =  repository.getAllDepartments();
+		List<DepartmentDto> departments =  repository.getAllDepartments(1, 5, "Nhan", (short) 3);
 		for (DepartmentDto department : departments
 			 ) {
-			System.out.println(department.getId() + " " + department.getName());
+			System.out.println("DepartmentID: " + department.getId() + ", DepartmentName: " + department.getName() + ", Address: " + department.getAddress());
 
 		}
 

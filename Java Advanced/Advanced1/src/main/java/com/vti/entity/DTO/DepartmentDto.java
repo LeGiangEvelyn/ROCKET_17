@@ -5,13 +5,12 @@ public class DepartmentDto {
 
     private String name;
 
-//    private AddressDto address;
+    private String address;
 
-
-    public DepartmentDto(short id, String name) {
+    public DepartmentDto(short id, String name, String address) {
         this.id = id;
         this.name = name;
-//        this.address = address;
+        this.address = address;
     }
 
     public DepartmentDto(){
@@ -34,7 +33,7 @@ public class DepartmentDto {
         this.name = name;
     }
 
-    //    public AddressDto getAddress() {
-//        return address;
-//    }
+    public String getAddress() {
+        return address;
+    }
 }
