@@ -1,0 +1,135 @@
+<div class="container-fluid">
+  <div class="page">
+    <div id=" page_top" class="section-body">
+      <div class="page-header row">
+        <div class="left">
+          <h1 id="page_title">Employee</h1>
+        </div>
+
+        <div class="right">
+          <div class="notification d-flex">
+            <i class="fa fa-user"> User </i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <div class="table-title container">
+      <div>
+        <h3 class="card-title left">Employee List</h3>
+      </div>
+      <div>
+        <form>
+          <input
+            type="text"
+            onkeyup="handKeyUpEventForSearching(event)"
+            id="input-search-department"
+            class="form-control input-group"
+            placeholder="Search..."
+          />
+          <button type="button" class="btn btn-search" onclick="handleSearch()">
+            <i class="btn-icon glyphicon glyphicon-search"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="row col-sm-12">
+        <button
+          type="button"
+          class="btn btn-primary btn-info add-new"
+          data-toggle="modal"
+          onclick="openAddModal()"
+        >
+          <i class="fa fa-plus"></i> Add New
+        </button>
+        <button
+          type="button"
+          class="btn btn-delete btn-info add-new"
+          data-toggle="modal"
+          onclick="deleteAllDepartment()"
+        >
+          <i class="fa fa-minus"></i> Delete All
+        </button>
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th style="width: 10%">
+            <input
+              type="checkbox"
+              id="checkbox-all"
+              name="checkbox-all"
+              onclick="onChangeCheckboxAll()"
+            />
+          </th>
+          <th style="width: 10%">#</th>
+          <th style="width: 60%">Name</th>
+          <th style="width: 20%">Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination d-flex justify-content-center" id="pagination"></ul>
+    </nav>
+  </div>
+
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="titleModal">Add Department</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+
+        <!-- body -->
+        <div class="modal-body">
+          <div class="modal-container">
+            <input type="hidden" id="id" name="id" />
+
+            <label for="name"><b>Name</b></label>
+            <input
+              type="text"
+              placeholder=" Enter Department Name"
+              name="name"
+              id="name"
+              required
+            />
+
+            <!-- footer -->
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button type="button" class="btn btn-primary" onclick="save()">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- success alert -->
+      <div
+        class="alert alert-success"
+        id="success-alert"
+        style="display: none"
+        role="alert"
+      >
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong> Success! </strong>
+      </div>
+    </div>
+  </div>
+</div>

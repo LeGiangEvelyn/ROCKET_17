@@ -1,0 +1,28 @@
+/* Add padding to containers */
+
+.modal-container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+
+input[type="text"],
+input[type="password"] {
+  width: 30%;
+  padding-top: 10px;
+  margin: 15px 0 10px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+.btn-search {
+  width: 8%;
+  margin: 0px 0 10px 0;
+}
